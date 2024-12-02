@@ -32,20 +32,21 @@ router.post('/', async (req, res) => {
     }
 })
 
-// router.patch('/:id',getProject, async (req,res) => {
-//     if (req.body.name != null) {
-//         res.department.name = req.body.name
-//     }
-//     if (req.body.subscribedToChannel != null) {
-//         res.department.subscribedToChannel = req.body.subscribedToChannel
-//     }
-//     try {
-//         const updatedEmployee = await res.department.save()
-//         res.json(updatedEmployee)
-//     } catch (error) {
-//         res.status(400).json({ message: error.message})
-//     }
-// })
+router.patch('/:id',getProject, async (req,res) => {
+    const { projectName, startDate, endDate, budget} = req.body
+
+    if(projectName) res.project.projectName = projectName
+    if(startDate) res.project.startDate = startDate
+    if(endDate) res.project.endDate = endDate
+    if(budget) res.project.budget = budget
+
+    try {
+        const updatedProject = await res.project.save()
+        res.json(updatedProject)
+    } catch (error) {
+        res.status(400).json({ message: error.message})
+    }
+})
 
 router.delete('/:id',getProject, async (req,res) => {
     try {

@@ -35,20 +35,25 @@ router.post('/', async (req, res) => {
     }
 })
 
-// router.patch('/:id',getEmployee, async (req,res) => {
-//     if (req.body.name != null) {
-//         res.employee.name = req.body.name
-//     }
-//     if (req.body.subscribedToChannel != null) {
-//         res.employee.subscribedToChannel = req.body.subscribedToChannel
-//     }
-//     try {
-//         const updatedEmployee = await res.employee.save()
-//         res.json(updatedEmployee)
-//     } catch (error) {
-//         res.status(400).json({ message: error.message})
-//     }
-// })
+router.patch('/:id',getEmployee, async (req,res) => {
+    const { firstName, lastName, email, phoneNumber, jobTitle, departmentID, projectIDs, managerID } = req.body
+
+    if (firstName) res.employee.firstName = firstName
+    if (lastName) res.employee.lastName = lastName
+    if (email) res.employee.email = email
+    if (phoneNumber) res.employee.phoneNumber = phoneNumber
+    if (jobTitle) res.employee.jobTitle = jobTitle
+    if (departmentID) res.employee.departmentID = departmentID
+    if (projectIDs) res.employee.projectIDs = projectIDs
+    if (managerID) res.employee.managerID = managerID
+
+    try {
+        const updatedEmployee = await res.employee.save()
+        res.json(updatedEmployee)
+    } catch (error) {
+        res.status(400).json({ message: error.message })
+    }
+});
 
 router.delete('/:id',getEmployee, async (req,res) => {
     try {
