@@ -2,7 +2,8 @@ require('dotenv').config()
 
 const express = require('express')
 const app = express()
-
+const router = express.Router()
+const Employee = require('./models/employee')
 const mongoose = require('mongoose')
 
 mongoose.connect(process.env.DATABASE_URL)
@@ -21,6 +22,9 @@ app.use('/department', departmentsRouter)
 const projectsRouter = require('./routes/project')
 app.use('/project', projectsRouter)
 
+
+
 app.listen(3000, () => {
     console.log('Server Started')
 })
+

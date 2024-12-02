@@ -17,7 +17,6 @@ router.get('/:id', getProject, (req,res) => {
 
 router.post('/', async (req, res) => {
     const project = new Project({
-        projectID: req.body.projectID,
         projectName: req.body.projectName,
         startDate: req.body.startDate,
         endDate: req.body.endDate,

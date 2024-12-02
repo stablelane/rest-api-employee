@@ -18,7 +18,6 @@ router.get('/:id', getDepartment, (req,res) => {
 
 router.post('/', async (req, res) => {
     const department = new Department({
-        departmentID: req.body.departmentID,
         departmentName: req.body.departmentName,
         location: req.body.location
     })

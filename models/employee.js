@@ -1,12 +1,6 @@
 const mongoose = require('mongoose')
 
 const employeeSchema = mongoose.Schema({
-    EmployeeID: {
-        type: String,
-        required: true,
-        default: () => new mongoose.Types.ObjectId().toString(),
-        unique: true
-    },
     firstName: {
         type: String,
         required: true
@@ -34,17 +28,17 @@ const employeeSchema = mongoose.Schema({
     },
     departmentID: { 
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'departments',
+        ref: 'Department',
         required: true
     },
     projectIDs: [{ 
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'projects', 
+        ref: 'Project', 
         required: true
     }],
     managerID: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'employees' 
+        ref: 'Employee' 
     },
 })
 
