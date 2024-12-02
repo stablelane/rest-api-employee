@@ -23,11 +23,7 @@ router.post('/', async (req, res) => {
         phoneNumber: req.body.phoneNumber,
         jobTitle: req.body.jobTitle,
         departmentID: req.body.departmentID,
-        projects: {
-            projectID: req.body.projects.projectID,
-            projectName: req.body.projects.projectName,
-            projectRole: req.body.projects.projectRole
-        },
+        projectIDs: req.body.projectIDs,
         managerID: req.body.managerID
     })
 
@@ -77,4 +73,6 @@ async function getEmployee(req, res, next) {
     res.employee = employee
     next()
 }
+
+
 module.exports = router

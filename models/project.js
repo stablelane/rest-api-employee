@@ -21,4 +21,4 @@ const projectSchema = mongoose.Schema({
     }
 })
 
-module.exports = mongoose.model('Projects', projectSchema)
+module.exports = mongoose.model('Project', projectSchema)
