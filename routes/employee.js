@@ -17,8 +17,18 @@ router.get('/:id', getEmployee, (req,res) => {
 
 router.post('/', async (req, res) => {
     const employee = new Employee({
-        name: req.body.name,
-        subscribedToChannel: req.body.subscribedToChannel
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        email: req.body.email,
+        phoneNumber: req.body.phoneNumber,
+        jobTitle: req.body.jobTitle,
+        departmentID: req.body.departmentID,
+        projects: {
+            projectID: req.body.projects.projectID,
+            projectName: req.body.projects.projectName,
+            projectRole: req.body.projects.projectRole
+        },
+        managerID: req.body.managerID
     })
 
     try {

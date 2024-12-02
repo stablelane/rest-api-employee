@@ -45,14 +45,14 @@ const employeeSchema = mongoose.Schema({
             type: String,
             required: true,
         },
-        role: {
+        projectRole: {
             type: String,
             required: true
         }
     },
     managerID: {
-        type: Number
+        type: String
     },
 })
 
-module.exports = mongoose.model('Employees', employeeSchema)
+module.exports = mongoose.model('Employee', employeeSchema)

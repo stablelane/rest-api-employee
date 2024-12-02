@@ -1,27 +1,70 @@
-GET http://localhost:3000/subscribers/674d0feab4b8d7665d912da9
+//get all
+GET http://localhost:3000/employee
+
 
 ###
+//get one
+GET http://localhost:3000/employee/674d655fafeb2c2902274a8e
 
-GET http://localhost:3000/subscribers
 
 ###
-POST http://localhost:3000/subscribers
+//create one
+POST http://localhost:3000/employee
 Content-Type: application/json
 
 {
-    "name": "person 1",
-    "subscribedToChannel": "channel Name"
+    "firstName": "person 3",
+    "lastName": "person 2 last name",
+    "email": "ghgg2h@gmail.com",
+    "phoneNumber": "2085456589",
+    "jobTitle": "accountant",
+    "departmentID": 2,
+    "projects": {
+        "projectID": 1,
+        "projectName": "first project",
+        "projectRole": "lead"
+    }
+
+}
+
+
+###
+//delete one
+
+DELETE http://localhost:3000/employee/674d726e04f6facfd061d863
+
+
+###
+// get all departments
+GET http://localhost:3000/department
+
+
+###
+//create one department
+POST http://localhost:3000/department
+Content-Type: application/json
+
+{
+    "departmentID": 1,
+    "departmentName": "Sales",
+    "location": "bariely"
+
 }
 
 ###
-DELETE http://localhost:3000/subscribers/674d4fbe44f01423c70dab27
+// get all projects
+GET http://localhost:3000/project
+
 
 ###
-
-PATCH http://localhost:3000/subscribers/674d4fbf44f01423c70dab29
+//create one projects
+POST http://localhost:3000/projects
 Content-Type: application/json
 
 {
-    "name": "person 2",
-    "subscribedToChannel": "channel Name-2"
+    "projectID": 1,
+    "projectName": "Sales",
+    "endDate": "2025-01-01",
+    "budget": 10000
+
 }
