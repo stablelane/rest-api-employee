@@ -2,8 +2,7 @@ require('dotenv').config()
 
 const express = require('express')
 const app = express()
-const router = express.Router()
-const Employee = require('./models/employee')
+
 const mongoose = require('mongoose')
 
 mongoose.connect(process.env.DATABASE_URL)
